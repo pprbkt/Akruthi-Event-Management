@@ -165,7 +165,7 @@ export default function ContactPage() {
                       <label htmlFor="eventType" className="text-xs font-sans font-semibold tracking-wider text-muted-foreground uppercase">
                         Event Type
                       </label>
-                      <Select onValueChange={(value) => setValue("eventType", value)}>
+                      <Select onValueChange={(val: any) => setValue("eventType", (val ?? "") as string)}>
                         <SelectTrigger className="rounded-xl">
                           <SelectValue placeholder="Select Event Type" />
                         </SelectTrigger>
