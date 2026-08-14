@@ -11,11 +11,11 @@ export function Footer() {
       <div className="container mx-auto px-4 py-16 md:px-6 md:py-20">
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="flex items-center gap-3">
-              <BrandLogo className="h-11 w-11 bg-white" />
+            <div className="flex items-center gap-4">
+              <BrandLogo className="h-16 w-16 md:h-20 md:w-20 bg-white" />
               <div>
-                <span className="block font-heading text-2xl leading-none text-white">Akruthi</span>
-                <span className="text-[10px] uppercase tracking-[0.34em] text-gold">Curated Celebrations</span>
+                <span className="block font-heading text-2xl md:text-3xl leading-none text-white">Akruthi</span>
+                <span className="text-[10px] md:text-xs uppercase tracking-[0.34em] text-gold mt-1 block">Curated Celebrations</span>
               </div>
             </div>
 

@@ -42,13 +42,13 @@ export function Navbar() {
     >
       <nav className="container mx-auto px-4 md:px-6 flex items-center justify-between" aria-label="Main navigation">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group" aria-label="Akruthi Event Solution - Home">
-          <BrandLogo className="h-11 w-11 transition-all duration-500 group-hover:-translate-y-0.5" />
+        <Link href="/" className="flex items-center gap-3 group shrink-0" aria-label="Akruthi Event Solution - Home">
+          <BrandLogo className="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 transition-all duration-500 group-hover:scale-105" />
           <div className="hidden sm:block">
-            <span className="font-heading text-xl text-foreground leading-none block">
+            <span className="font-heading text-2xl md:text-3xl text-foreground leading-none block">
               Akruthi
             </span>
-            <span className="text-[10px] text-gold font-sans tracking-[0.35em] uppercase leading-none">
+            <span className="text-[10px] md:text-xs text-gold font-sans tracking-[0.35em] uppercase leading-none mt-1">
               Curated Celebrations
             </span>
           </div>
@@ -132,9 +132,12 @@ export function Navbar() {
               <div className="flex flex-col h-full">
                 {/* Mobile Header */}
                 <div className="flex items-center justify-between p-6 border-b border-border">
-                  <div className="flex items-center gap-2">
-                    <BrandLogo className="h-8 w-8" />
-                    <span className="font-heading font-bold">Akruthi</span>
+                  <div className="flex items-center gap-3">
+                    <BrandLogo className="h-14 w-14" />
+                    <div>
+                      <span className="font-heading text-xl font-bold block">Akruthi</span>
+                      <span className="text-[9px] text-gold font-sans tracking-[0.3em] uppercase block">Curated Celebrations</span>
+                    </div>
                   </div>
                 </div>
 
