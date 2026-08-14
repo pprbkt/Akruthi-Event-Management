@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
-import localFont from "next/font/local";
+import { Manrope, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
@@ -8,32 +7,11 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingButtons } from "@/components/layout/FloatingButtons";
 import { JsonLd } from "@/components/seo/JsonLd";
 
-const agatho = localFont({
-  src: [
-    {
-      path: "../public/fonts/Agatho-Light.otf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Agatho-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Agatho-Medium.otf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Agatho-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-agatho",
   display: "swap",
-  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
 const manrope = Manrope({
@@ -100,7 +78,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`h-full scroll-smooth ${agatho.variable} ${manrope.variable}`}
+      className={`h-full scroll-smooth ${cormorant.variable} ${manrope.variable}`}
     >
       <body className="min-h-full flex flex-col antialiased bg-background text-foreground transition-colors duration-500">
         <ThemeProvider>
