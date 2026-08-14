@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { businessInfo, eventTypes } from "@/data/site-data";
-import { Phone, Mail, MapPin, Clock, MessageSquareCode } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquareCode, CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
 const contactSchema = z.object({
@@ -32,6 +32,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -52,12 +53,26 @@ export default function ContactPage() {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form Submitted:", data);
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 5000);
+    setSubmitError(null);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Something went wrong.");
+      }
+
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 8000);
+    } catch (error: any) {
+      setSubmitError(error.message || "Failed to submit. Please try again or call us directly.");
+    }
   };
 
   return (
@@ -100,14 +115,26 @@ export default function ContactPage() {
               </p>
 
               {submitted ? (
-                <div className="p-6 rounded-2xl bg-gold/10 border border-gold text-center">
-                  <h3 className="font-heading text-xl font-bold text-gold-dark dark:text-gold mb-2">Thank You!</h3>
+                <div className="p-8 rounded-2xl bg-gold/10 border border-gold text-center space-y-3">
+                  <CheckCircle className="w-12 h-12 text-gold-dark dark:text-gold mx-auto" />
+                  <h3 className="font-heading text-xl font-bold text-gold-dark dark:text-gold">Thank You!</h3>
                   <p className="text-sm font-sans text-muted-foreground">
-                    Your request has been received. Our event coordinator will call you shortly.
+                    Your consultation request has been received successfully. A confirmation has been sent to your email.
+                  </p>
+                  <p className="text-sm font-sans text-muted-foreground">
+                    Our event coordinator will call you within 24 hours.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  {/* Error State */}
+                  {submitError && (
+                    <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/30 flex items-start gap-3">
+                      <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                      <p className="text-sm text-destructive">{submitError}</p>
+                    </div>
+                  )}
+
                   {/* Name & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -224,7 +251,7 @@ export default function ContactPage() {
                     disabled={isSubmitting}
                     className="w-full py-6 rounded-xl font-semibold bg-gradient-to-r from-crimson to-crimson-dark hover:from-crimson-dark hover:to-crimson text-white shadow-lg"
                   >
-                    {isSubmitting ? "Sending Request..." : "Request Free Consultation"}
+                    {isSubmitting ? "Sending Request..." : "Book a Consultation"}
                   </Button>
                 </form>
               )}
@@ -322,7 +349,7 @@ export default function ContactPage() {
                   className="rounded-xl py-6 border-[#25D366] hover:bg-[#25D366]/10 font-semibold"
                 >
                   <a
-                    href={`https://wa.me/91${businessInfo.phone[0]}`}
+                    href={`https://wa.me/91${businessInfo.phone[1]}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -332,9 +359,19 @@ export default function ContactPage() {
                 </Button>
               </div>
 
-              {/* Google Map Placeholder */}
+              {/* Google Maps Embed */}
               <div className="rounded-3xl overflow-hidden border border-border shadow-xl">
-                <ImagePlaceholder label="Office Location Map Placeholder — Falnir / Balmatta, Mangaluru" aspect="landscape" />
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3889.5!2d74.8476!3d12.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDUyJzEyLjAiTiA3NMKwNTAnNTEuNCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Akruthi Event Solution Office Location — Falnir / Balmatta, Mangaluru"
+                  className="w-full"
+                />
               </div>
             </motion.div>
           </div>

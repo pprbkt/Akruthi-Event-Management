@@ -79,6 +79,7 @@ export function AboutPreview() {
                 label="Elegant white and gold reception with floral draping"
                 src="/Akruthi-events-photos/Reception(1).jpg"
                 aspect="portrait"
+                priority
                 className="w-full rounded-[2rem] object-cover"
               />
             </div>
@@ -98,6 +99,7 @@ export function AboutPreview() {
                 label="Ornate golden mantap with Ganesha and pink floral canopy"
                 src="/Akruthi-events-photos/Traditional Mantap(1).jpg"
                 aspect="landscape"
+                priority
                 className="w-full rounded-[1.75rem] object-cover"
               />
             </div>

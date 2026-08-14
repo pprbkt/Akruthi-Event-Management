@@ -5,7 +5,7 @@ import { businessInfo } from "@/data/site-data";
 import { motion } from "framer-motion";
 
 export function FloatingButtons() {
-  const whatsappLink = `https://wa.me/91${businessInfo.phone[0]}?text=Hi, I'm interested in your event management services.`;
+  const whatsappLink = `https://wa.me/91${businessInfo.phone[1]}?text=Hi, I'm interested in your event management services.`;
 
   return (
     <>

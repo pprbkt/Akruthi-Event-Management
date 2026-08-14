@@ -85,6 +85,7 @@ export function Hero() {
                   label="Grand traditional Indian wedding stage"
                   src="/Akruthi-events-photos/1785672398048.jpg"
                   aspect="portrait"
+                  priority
                   className="min-h-[28rem] w-full rounded-[2rem] object-cover md:min-h-[38rem]"
                 />
               </div>
@@ -107,6 +108,7 @@ export function Hero() {
                   label="Modern floral reception stage with LED-lit petals"
                   src="/Akruthi-events-photos/Floral Decor(Reception).jpg"
                   aspect="square"
+                  priority
                   className="w-full rounded-[1.75rem] object-cover"
                 />
               </div>

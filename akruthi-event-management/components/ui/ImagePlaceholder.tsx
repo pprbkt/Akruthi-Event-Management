@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface ImagePlaceholderProps {
@@ -9,6 +10,7 @@ interface ImagePlaceholderProps {
   className?: string;
   aspect?: "square" | "video" | "portrait" | "landscape" | "hero";
   objectPosition?: string;
+  priority?: boolean;
 }
 
 const aspectMap = {
@@ -25,6 +27,7 @@ export function ImagePlaceholder({
   className,
   aspect = "landscape",
   objectPosition = "center",
+  priority = false,
 }: ImagePlaceholderProps) {
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -38,14 +41,17 @@ export function ImagePlaceholder({
           className
         )}
       >
-        <img
+        <Image
           src={src}
           alt={label}
-          loading="lazy"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+          loading={priority ? "eager" : "lazy"}
           onError={() => setFailed(true)}
           onLoad={() => setLoaded(true)}
           className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-all duration-700",
+            "object-cover transition-all duration-700",
             loaded ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
           )}
           style={{ objectPosition }}
@@ -115,3 +121,4 @@ export function ImagePlaceholder({
     </div>
   );
 }
+

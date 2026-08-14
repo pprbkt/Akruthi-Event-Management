@@ -5,7 +5,7 @@ export const businessInfo = {
   established: "August 2009",
   experience: "15+",
   phone: ["9964143968", "8618954564"],
-  email: "info@akruthievents.com",
+  email: "paperbukit@gmail.com",
   address: {
     line1: "Medical Chamber",
     line2: "Near Don Bosco Hall",
@@ -107,7 +107,7 @@ export const services = [
     ],
     icon: "Building2",
     placeholder: "Corporate Event Image",
-    image: "/Akruthi-events-photos/Grand Floral (Reception).jpg",
+    image: "/Akruthi-events-photos/corpo.jpeg",
   },
   {
     id: "college-fests",
@@ -122,7 +122,7 @@ export const services = [
     ],
     icon: "GraduationCap",
     placeholder: "College Fest Image",
-    image: "/Akruthi-events-photos/Haldi(1).jpg",
+    image: "/Akruthi-events-photos/corpo2.jpeg",
   },
   {
     id: "birthday-events",
@@ -137,7 +137,7 @@ export const services = [
     ],
     icon: "Cake",
     placeholder: "Birthday Event Image",
-    image: "/Akruthi-events-photos/Reception(3).jpg",
+    image: "/Akruthi-events-photos/birthday_party.jpeg",
   },
   {
     id: "reception",
@@ -227,7 +227,7 @@ export const services = [
     ],
     icon: "PartyPopper",
     placeholder: "Balloon Decoration Image",
-    image: "/Akruthi-events-photos/Reception(2).jpg",
+    image: "/Akruthi-events-photos/baloon_decor.jpeg",
   },
   {
     id: "fabrication",
@@ -469,7 +469,7 @@ export const destinations = [
       "Combined Mangalore-Udupi celebrations",
     ],
     placeholder: "Udupi Destination Wedding Image",
-    image: "/Akruthi-events-photos/Traditional Mantap.jpg",
+    image: "/Akruthi-events-photos/decor3.jpeg",
   },
 ];
 
@@ -819,6 +819,9 @@ export const galleryCategories = [
   "Haldi",
   "Stage Decor",
   "Destination",
+  "Birthday",
+  "Corporate",
+  "Decor",
 ];
 
 export const galleryItems = [
@@ -840,6 +843,19 @@ export const galleryItems = [
   { id: 16, category: "Stage Decor", placeholder: "Royal Carved Mantap Stage", aspect: "landscape", image: "/Akruthi-events-photos/Floral Decor(Reception)(1).jpg" },
   { id: 17, category: "Destination", placeholder: "Beach Sunset Wedding Stage", aspect: "landscape", image: "/Akruthi-events-photos/Beach Wedding(Destination).jpg" },
   { id: 18, category: "Destination", placeholder: "Beachside Traditional Mandap", aspect: "square", image: "/Akruthi-events-photos/Beach side wedding.jpg" },
+  // ─── New Photos ─────────────────────────────────────────────────────
+  { id: 19, category: "Birthday", placeholder: "Jungle Theme Birthday Party", aspect: "portrait", image: "/Akruthi-events-photos/birthday_party.jpeg" },
+  { id: 20, category: "Birthday", placeholder: "ONEderful Pink Birthday Celebration", aspect: "portrait", image: "/Akruthi-events-photos/birthday_party2.jpeg" },
+  { id: 21, category: "Birthday", placeholder: "Wild ONE Safari Birthday Stage", aspect: "square", image: "/Akruthi-events-photos/birthday_party3.jpeg" },
+  { id: 22, category: "Corporate", placeholder: "Corporate Seminar Event Setup", aspect: "landscape", image: "/Akruthi-events-photos/corpo.jpeg" },
+  { id: 23, category: "Corporate", placeholder: "Year-End Corporate Party Backdrop", aspect: "landscape", image: "/Akruthi-events-photos/corpo2.jpeg" },
+  { id: 24, category: "Corporate", placeholder: "Grand Anniversary Stage & Lighting", aspect: "landscape", image: "/Akruthi-events-photos/anniversary.jpeg" },
+  { id: 25, category: "Decor", placeholder: "Outdoor Wedding Gate with Jasmine", aspect: "portrait", image: "/Akruthi-events-photos/decor.jpeg" },
+  { id: 26, category: "Decor", placeholder: "Traditional Open-Air Mandap Setup", aspect: "portrait", image: "/Akruthi-events-photos/decor2.jpeg" },
+  { id: 27, category: "Decor", placeholder: "Grand Traditional Mantap with Florals", aspect: "square", image: "/Akruthi-events-photos/decor3.jpeg" },
+  { id: 28, category: "Haldi", placeholder: "Vibrant Haldi Ceremony Decor", aspect: "landscape", image: "/Akruthi-events-photos/haldi_decor.jpeg" },
+  { id: 29, category: "Decor", placeholder: "Balloon Arch Celebration Setup", aspect: "landscape", image: "/Akruthi-events-photos/baloon_decor.jpeg" },
+  { id: 30, category: "Stage Decor", placeholder: "Artistic Painted Floral Stage Backdrop", aspect: "square", image: "/Akruthi-events-photos/1785672398048.jpg" },
 ];
 
 // ─── Event Types for Contact Form ────────────────────────────────────────
