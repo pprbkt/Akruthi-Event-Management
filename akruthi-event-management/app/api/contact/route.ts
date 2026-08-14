@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const OWNER_EMAIL = "paperbukit@gmail.com";
+const OWNER_EMAIL = "vaibsnayak.813@gmail.com";
 
 // Create reusable transporter using Gmail SMTP
 const transporter = nodemailer.createTransport({

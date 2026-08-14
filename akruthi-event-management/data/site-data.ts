@@ -5,7 +5,7 @@ export const businessInfo = {
   established: "August 2009",
   experience: "15+",
   phone: ["9964143968", "8618954564"],
-  email: "paperbukit@gmail.com",
+  email: "vaibsnayak.813@gmail.com",
   address: {
     line1: "Medical Chamber",
     line2: "Near Don Bosco Hall",
